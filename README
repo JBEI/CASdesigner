@@ -58,3 +58,11 @@ the port in the Vagrantfile).
 How to use CASdesigner
 ======================
 See manual.docx for help. Thanks.
+
+
+CASdesigner as a Web app
+========================
+A Web app version of CASdesigner is running at http://casdesigner.jbei.org/ .
+You can find the source code at this git repo:
+
+  https://github.com/JBEI/CASdesigner-web
