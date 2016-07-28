@@ -1,9 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+SOURCE_FOLDER =  "/var/www/casdesigner"
+
 Vagrant.configure(2) do |config|
   config.vm.box = "debian/jessie64"
   config.vm.network "forwarded_port", guest: 8888, host: 8888
+  config.vm.synced_folder ".", SOURCE_FOLDER
 
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get install -y python-pip 
@@ -20,6 +23,6 @@ EOF
   SHELL
 
   config.vm.provision "shell", run: "always", inline: <<-SHELL
-    su - vagrant -c "cd /vagrant && jupyter notebook"
+    su - vagrant -c "cd #{SOURCE_FOLDER} && jupyter notebook"
   SHELL
 end
